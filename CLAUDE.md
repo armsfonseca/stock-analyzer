@@ -22,6 +22,17 @@ Three-layer structure:
 - **[data/fetcher.py](data/fetcher.py)** — Downloads OHLCV data from Yahoo Finance via `yfinance`. Results are cached with `@st.cache_data(ttl=3600)` to avoid repeated API calls. Tickers use the `.SA` suffix for B3 (Brazilian exchange). `START_DATE`/`END_DATE` constants define the 2025–2026 window.
 - **[charts/builders.py](charts/builders.py)** — Pure functions that receive `data: dict[symbol → DataFrame]` and return `plotly.graph_objects.Figure`. Three charts: closing price (line), % performance normalized to Jan 2025 baseline (line), and daily volume (bar).
 
+## GitHub
+
+Repositório: https://github.com/armsfonseca/stock-analyzer
+
+Toda alteração feita por Claude Code (Edit ou Write) é automaticamente commitada e enviada ao GitHub via hook `PostToolUse` configurado em `.claude/settings.json`. O commit usa a mensagem `auto: update via Claude Code`.
+
+Para commits manuais:
+```bash
+git add -A && git commit -m "mensagem" && git push
+```
+
 ## Key conventions
 
 - `TICKERS` dict in `fetcher.py` maps display labels → Yahoo Finance symbols. Add new stocks here.
